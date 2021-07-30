@@ -30,8 +30,6 @@ public class ProductController {
 
 	@Autowired
 	private ProductRepository productRepository;
-//	@Autowired
-//	private ProductServices service;
 		
 	@GetMapping("/product")
 	public java.util.List<Product> getAllProducts(){
@@ -42,38 +40,6 @@ public class ProductController {
 	public Product createProduct(@RequestBody Product product) {
 		return productRepository.save(product);
 	}
-	
-//	@PostMapping("/product")
-//	public ResponseEP newUser(@RequestBody Product product) {
-//		ResponseEP res2 = null;
-//		try {
-//			// service + business logic
-//			int checkProductID = product.getpID();
-//			if (checkProductID != 0) {
-//				Product userobj= service.checkproductid(checkProductID);
-//					if (userobj != null) {
-//						res2 = new ResponseEP();
-//						res2.setMessageStringP("Product ID already exist");
-//						res2.setStatusCode(500);
-//						res2.setPid(userobj.getpID());
-//					}else {
-//						service.saveProduct(product);
-//						res2 = new ResponseEP();
-//						res2.setMessageStringP("Product saved successfully");
-//						res2.setStatusCode(200);
-//						res2.setPid(1);
-//					}
-//			}
-//		}catch(Exception ex) {
-//			// what is your error response
-//			res2 = new ResponseEP();
-//			res2.setMessageStringP("Error in user saving");
-//			res2.setStatusCode(405);
-//			res2.setPid(0);
-//			
-//		}
-//		return res2;
-//	}
 	
 	@GetMapping("/product/{pID}")
 	public ResponseEntity<Product> getProductByID(@PathVariable int pID) {
